@@ -14,6 +14,7 @@ permissions:
   id-token: write
 env:
   JUST_JUSTFILE: /justfile.dataproduct
+  IN_DEVCONTAINER: false
 jobs:
   build:
     runs-on: ubuntu-latest
