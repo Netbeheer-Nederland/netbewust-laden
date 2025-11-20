@@ -1,0 +1,177 @@
+= Netbewust Laden
+
+The joint network operators expect that due to the rapidly increasing demand
+for grid capacity on the low-voltage (LV) networks, congestion issues will
+arise, and _Netbewust Laden_ is seen as one of the solutions.
+
+This data product provides network operators with the opportunity to
+periodically provide municipalities, charging station operators, _NAL_ regions,
+and other stakeholders with uniform insights into which areas are expected to
+experience (impending) capacity shortages.
+
+This is to facilitate the mobility transition and to optimally utilize the
+locally available grid capacity for all electricity users, preventing overload
+caused by peaks in demand. The alternative is to reinforce the grid, which has
+a long lead time, requires high investments, and will delay the energy
+transition.
+
+.Data Product
+[d2,svg,theme=4]
+----
+grid-rows: 10
+grid-columns: 6
+
+horizontal-gap: 160
+vertical-gap: 80
+
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+ForecastDataSet.class: dataset
+GeographicalRegion.class: enterprise
+Line.class: grid
+ACLineSegment.class: grid
+Analog.class: grid
+7.class: empty
+
+1.class: empty
+SubGeographicalRegion.class: enterprise
+Substation.class: grid
+PowerTransformer.class: grid
+OperationalLimitSet.class: grid
+9.class: empty
+
+2.class: empty
+10.class: empty
+11.class: empty
+TopologicalNode.class: grid
+12.class: empty
+13.class: empty
+
+3.class: empty
+RegisteredLoad.class: market
+MktConnectivityNode.class: market
+Terminal.class: grid
+14.class: empty
+15.class: empty
+
+4.class: empty
+MarketParticipant.class: market
+UsagePoint.class: enterprise
+EnergyConsumer.class: grid
+Location.class: enterprise
+19.class: empty
+
+5.class: empty
+MarketRole.class: market
+20.class: empty
+21.class: empty
+22.class: empty
+23.class: empty
+
+ForecastDataSet -> GeographicalRegion
+GeographicalRegion -> SubGeographicalRegion
+SubGeographicalRegion -> Substation
+SubGeographicalRegion -> Line
+Substation -> PowerTransformer
+Line -> ACLineSegment
+PowerTransformer -> Analog
+PowerTransformer -> OperationalLimitSet
+PowerTransformer -> TopologicalNode
+TopologicalNode -> Terminal
+Terminal -> EnergyConsumer
+EnergyConsumer -> Location
+EnergyConsumer -> UsagePoint
+Terminal -> MktConnectivityNode
+MktConnectivityNode -> RegisteredLoad
+RegisteredLoad -> MarketParticipant
+MarketParticipant -> MarketRole
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+
+classes: {
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke: transparent
+    }
+  }
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+  dataset: {
+    style: {
+      shadow: true
+    }
+  }
+}
+----
+
+== Additional schemas
+
+* xref:schema:attachment$schemas/json_schema/dp_netbewust_laden.json_schema.json[JSON schema]
+* xref:schema:attachment$examples/dp_netbewust_laden.example.json[Example JSON instance data]
