@@ -173,5 +173,4 @@ classes: {
 
 == Additional schemas
 
-* xref:schema:attachment$schemas/json_schema/dp_netbewust_laden.json_schema.json[JSON schema]
-* xref:schema:attachment$examples/dp_netbewust_laden.example.json[Example JSON instance data]
+* xref:schema:attachment$schemas/json_schema/netbewust_laden.json_schema.json[JSON schema]

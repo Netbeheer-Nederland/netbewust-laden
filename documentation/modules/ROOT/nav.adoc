@@ -1,1 +1,1 @@
-* xref:dp-netbewust-laden::design.adoc[]
+* xref::design.adoc[]

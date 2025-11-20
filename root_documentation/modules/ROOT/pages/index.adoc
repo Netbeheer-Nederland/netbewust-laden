@@ -1,0 +1,16 @@
+= Netbewust Laden
+
+The joint network operators expect that due to the rapidly increasing demand
+for grid capacity on the low-voltage (LV) networks, congestion issues will
+arise, and _Netbewust Laden_ is seen as one of the solutions.
+
+This data product provides network operators with the opportunity to
+periodically provide municipalities, charging station operators, _NAL_ regions,
+and other stakeholders with uniform insights into which areas are expected to
+experience (impending) capacity shortages.
+
+This is to facilitate the mobility transition and to optimally utilize the
+locally available grid capacity for all electricity users, preventing overload
+caused by peaks in demand. The alternative is to reinforce the grid, which has
+a long lead time, requires high investments, and will delay the energy
+transition.
