@@ -7,7 +7,7 @@ defaults:
     shell: bash
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   JUST_JUSTFILE: /justfile.dataproduct

@@ -1,0 +1,41 @@
+
+name: Publish to GitHub Pages (test)
+on:
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+env:
+  JUST_JUSTFILE: /justfile.dataproduct
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/netbeheer-nederland/env:latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v3
+      #- name: Generate site
+      #  run: antora --fetch /antora-playbook.yml
+      - name: Generate site
+        run: |
+          just -d . build
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
