@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/netbeheer-nederland/env:latest
+      image: ghcr.io/netbeheer-nederland/env:test
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
