@@ -1,0 +1,25 @@
+name: Preview version
+on:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  contents: write
+
+env:
+  JUST_JUSTFILE: /justfile.dataproduct
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/netbeheer-nederland/env:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Generate documentation and schemas
+        run: |
+          just -d . build
